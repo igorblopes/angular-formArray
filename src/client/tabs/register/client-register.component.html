@@ -1,0 +1,41 @@
+<div class="page-layout simple fullwidth">
+
+    <div class="content-card">
+
+        <div fxLayout="column" >
+            <div fxLayout="row">
+                <form [formGroup]="formEntity">
+                    <mat-form-field appearance="outline" fxFlex="40" class="pr-4">
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="name" required ngModel>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="40" class="pr-4">
+                        <mat-label>Note</mat-label>
+                        <input matInput formControlName="note" required ngModel>
+                    </mat-form-field>
+                </form>
+            </div>
+
+            <div fxLayout="row" [formGroup]="formEntity">
+                <div formArrayName="address" *ngFor="let item of formEntity.get('address').controls; let i = index;">
+                    <div [formGroup]="item">
+                        <mat-form-field appearance="outline" fxFlex="40" class="pr-4">
+                            <mat-label>Rua</mat-label>
+                            <input matInput formControlName="rua" required ngModel>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="40" class="pr-4">
+                            <mat-label>Numero</mat-label>
+                            <input matInput formControlName="numero" required ngModel>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="40" class="pr-4">
+                            <mat-label>Bairro</mat-label>
+                            <input matInput formControlName="bairro" required ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
